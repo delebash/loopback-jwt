@@ -1,13 +1,118 @@
-// module.exports = function (app) {
-//   var _ = require('lodash');
-//   var User = app.models.user;
-//   var Role = app.models.Role;
-//   var RoleMapping = app.models.RoleMapping;
-//   var ACL = app.models.ACL;
+module.exports = function (app) {
+  var _ = require('lodash');
+  var User = app.models.user;
+  var Role = app.models.Role;
+  var RoleMapping = app.models.RoleMapping;
+  var ACL = app.models.ACL;
+
+
+
+  //
+  User.addRole = async function (role) {
+    let roleid = await Role.create({
+      name: role,
+      description: "role"
+    });
+  };
+
+  User.remoteMethod('addRole', {
+    accepts: [
+      {
+        arg: 'role',
+        type: 'string',
+        required: true
+      }
+    ],
+    returns: {}
+    ,
+    http: {
+      verb: 'post',
+      path: '/addRole'
+    }
+  });
+
+
+  // Add method getAllRoles to user
+  User.getAllRoles = function (req, next) {
+    let userId = req.accessToken.userId;
+    if (!userId) {
+      return sendError(next, 'You are not connected', 401);
+    }
+    Role.getRoles({principalType: RoleMapping.USER, principalId: userId}, function (err, ids) {
+      if (err) {
+        return next(err);
+      }
+      let dataIds = _.filter(ids, (id) => {
+        return !_.isString(id) || id.substr(0, 1) !== '$'
+      });
+      let dynamicRoles = _.filter(ids, (id) => {
+        return _.isString(id) && id.substr(0, 1) === '$'
+      });
+      // Treat this separately because if dataIds = [], all roles will be return by find request
+      if (dataIds.length === 0) {
+        next(null, dynamicRoles);
+        return Promise.resolve(dynamicRoles);
+      }
+      Role.find({where: {id: {inq: dataIds}}})
+        .then(function (roles) {
+          let result = _.map(roles, 'name');
+          result = _.uniq(result.concat(dynamicRoles));
+          next(null, result);
+          return result;
+        })
+        .catch(function (error) {
+          return sendError(next, 'Internal error', 500);
+        })
+    });
+  };
+
+  User.remoteMethod('getAllRoles', {
+    accepts: [
+      {
+        arg: 'context',
+        type: 'object',
+        http: {source: 'req'},
+        required: true
+      }
+    ],
+    returns: {
+      arg: 'roles',
+      type: '[string]'
+    }
+    ,
+    http: {
+      verb: 'get',
+      path: '/getroles'
+    }
+  });
+
+  // user.addRole = function (id, role, next) {
+  //   next = next || function () {
+  //   };
+  //   return Role.findOne({where: {name: role}})
+  //     .then(function (role) {
+  //       if (!role) return sendError(next, 'No role found', 404);
+  //       return RoleMapping.findOrCreate({principalType: RoleMapping.USER, principalId: id, roleId: role.id});
+  //     })
+  //     .then(function (data) {
+  //       next(null);
+  //       return null;
+  //     })
+  //     .catch(function (error) {
+  //       return sendError(next, 'Internal error', 500);
+  //     })
+  // };
+  //
+
+
+
+
+
 //
 //   /*
 //    * Configure ACL's
 //    */
+
 //   ACL.create({
 //     model: 'user',
 //     property: '*',
@@ -73,16 +178,18 @@
 //
 //     next();
 //   });
+// //
+// //   /*
+// //    * Configure relationships
+// //    */
 //
-//   /*
-//    * Configure relationships
-//    */
 //    RoleMapping.belongsTo(User);
 //    RoleMapping.belongsTo(Role);
 //    User.hasMany(Role, {through: RoleMapping, foreignKey: 'principalId'});
 //    User.hasMany(RoleMapping, {foreignKey: 'principalId'});
-//    Role.hasMany(User, {through: RoleMapping, foreignKey: 'roleId'});
-//
+//     Role.hasMany(User, {through: RoleMapping, foreignKey: 'roleId'});
+
+   //
 //   /*
 //    * Add additional attributes to models.
 //    */
@@ -210,4 +317,4 @@
 //       }
 //     }
 //   );
-// };
+};

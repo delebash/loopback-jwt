@@ -20,17 +20,17 @@ async function main() {
   console.log(user[0].id)
 
   //Do not specify id field
-  // let role = await Role.create({
-  //   name: 'admin',
-  //   description: "Administrator Role"
-  // });
-  // console.log(role.id)
+  let role = await Role.create({
+    name: 'test',
+    description: "Administrator Role"
+  });
+  console.log(role.id)
 
  //roleid = role.id || 1
   let rm = await RoleMapping.create({
     principalType: RoleMapping.USER,
     principalId: user[0].id,
-    roleId: 1
+    roleId: role.id
   });
 
 //   Role.find({

@@ -729,3 +729,8 @@ Paste into user.js
       ],
       "methods": {}
     }
+
+
+Curl you need to change to double quotes.  I think you only need to double quote the url, but just in case
+
+    curl -X GET --header "Accept: application/json" --header "Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFnZWVrdGVjaC5jb20iLCJ1c2VySWQiOjgsImlzcyI6IkFnZWVrdGVjaCIsImlhdCI6MTQ5OTE1NTExOCwiZXhwIjoxNDk5MjQxNTE4fQ.zCJuPsAGa47m9wRHwRATt0IGYLo_dnXHP4Cb7x_6YkU" "http://localhost:3000/api/shippers"
