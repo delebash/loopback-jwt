@@ -1,0 +1,34 @@
+{
+  "restApiRoot": "/api",
+  "host": "localhost",
+  "port": 3000,
+  "client": "http://localhost:9000",
+  "remoting": {
+    "cors": false,
+    "context": false,
+    "rest": {
+      "normalizeHttpPath": false,
+      "xml": false
+    },
+    "json": {
+      "strict": false,
+      "limit": "100kb"
+    },
+    "urlencoded": {
+      "extended": true,
+      "limit": "100kb"
+    },
+    "handleErrors": false
+  },
+  "jwt": {
+    "user_model": "user",
+    "client_secret": "**do_this_in_xyz_local_json**",
+    "access_token_ttl": "1000",
+    "refresh_token_ttl": "30d",
+    "properties": {
+      "displayName": "displayName",
+      "email": "email",
+      "userId": "id"
+    }
+  }
+}

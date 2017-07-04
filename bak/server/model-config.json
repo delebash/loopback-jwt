@@ -1,0 +1,106 @@
+{
+  "accesstoken": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "acl": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "customers": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "employee_privileges": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "employees": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "inventory_transaction_types": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "inventory_transactions": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "invoices": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "order_details": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "order_details_status": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "orders": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "orders_status": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "orders_tax_status": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "privileges": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "products": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "project": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "purchase_order_details": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "purchase_order_status": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "purchase_orders": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "role": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "rolemapping": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "sales_reports": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "shippers": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "strings": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "suppliers": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "user": {
+    "public": true,
+    "dataSource": "northwind"
+  }
+}

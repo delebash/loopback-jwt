@@ -1,0 +1,43 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "user": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "AccessToken": {
+    "dataSource": "northwind",
+    "public": false,
+    "relations": {
+      "user": {
+        "type": "belongsTo",
+        "model": "user",
+        "foreignKey": "userId"
+      }
+    }
+  },
+  "acl": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "role": {
+    "public": true,
+    "dataSource": "northwind"
+  },
+  "rolemapping": {
+    "public": true,
+    "dataSource": "northwind"
+  }
+}

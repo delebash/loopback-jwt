@@ -1,0 +1,12 @@
+{
+  "northwind": {
+    "host": "localhost",
+    "port": 3306,
+    "url": "",
+    "database": "northwind",
+    "password": "test12345",
+    "name": "northwind",
+    "user": "root",
+    "connector": "mysql"
+  }
+}

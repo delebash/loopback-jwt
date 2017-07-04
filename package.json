@@ -1,0 +1,39 @@
+{
+  "name": "fullapitest",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "start": "node .",
+    "posttest": "npm run lint && nsp check"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "compression": "^1.0.3",
+    "cors": "^2.5.2",
+    "helmet": "^3.6.1",
+    "jsonwebtoken": "^7.4.1",
+    "loopback": "^3.0.0",
+    "loopback-boot": "^2.25.0",
+    "loopback-component-explorer": "^4.0.0",
+    "serve-favicon": "^2.0.1",
+    "strong-error-handler": "^2.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.1.1",
+    "eslint-config-loopback": "^8.0.0",
+    "fs-extra": "^3.0.1",
+    "loadash": "^0.0.1",
+    "loopback-connector-mysql": "^4.2.0",
+    "nsp": "^2.1.0"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "license": "UNLICENSED",
+  "description": "fullapitest"
+}

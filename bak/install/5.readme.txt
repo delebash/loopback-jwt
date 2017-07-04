@@ -1,0 +1,28 @@
+in mode-config.json
+
+remove-lowercase or extended model entries
+roles
+rolemapping
+acl
+accesscontrole
+user
+
+lowercase other User
+
+Overwrite
+
+ "AccessToken": {
+    "dataSource": "northwind",
+    "public": false,
+    "relations": {
+      "user": {
+        "type": "belongsTo",
+        "model": "user",
+        "foreignKey": "userId"
+      }
+    }
+  },
+
+
+user.json
+set property id required=false

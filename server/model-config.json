@@ -1,0 +1,129 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "AccessToken": {
+    "dataSource": "northwind",
+    "public": false,
+    "relations": {
+      "user": {
+        "type": "belongsTo",
+        "model": "user",
+        "foreignKey": "userId"
+      }
+    }
+  },
+  "ACL": {
+    "dataSource": "northwind",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "northwind",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "northwind",
+    "public": false
+  },
+  "customers": {
+    "dataSource": "northwind",
+    "public": true
+  },
+  "employee_privileges": {
+    "dataSource": "northwind",
+    "public": true
+  },
+  "employees": {
+    "dataSource": "northwind",
+    "public": true
+  },
+  "inventory_transaction_types": {
+    "dataSource": "northwind",
+    "public": true
+  },
+  "inventory_transactions": {
+    "dataSource": "northwind",
+    "public": true
+  },
+  "invoices": {
+    "dataSource": "northwind",
+    "public": true
+  },
+  "order_details": {
+    "dataSource": "northwind",
+    "public": true
+  },
+  "order_details_status": {
+    "dataSource": "northwind",
+    "public": true
+  },
+  "orders": {
+    "dataSource": "northwind",
+    "public": true
+  },
+  "orders_status": {
+    "dataSource": "northwind",
+    "public": true
+  },
+  "orders_tax_status": {
+    "dataSource": "northwind",
+    "public": true
+  },
+  "privileges": {
+    "dataSource": "northwind",
+    "public": true
+  },
+  "products": {
+    "dataSource": "northwind",
+    "public": true
+  },
+  "project": {
+    "dataSource": "northwind",
+    "public": true
+  },
+  "purchase_order_details": {
+    "dataSource": "northwind",
+    "public": true
+  },
+  "purchase_order_status": {
+    "dataSource": "northwind",
+    "public": true
+  },
+  "purchase_orders": {
+    "dataSource": "northwind",
+    "public": true
+  },
+  "sales_reports": {
+    "dataSource": "northwind",
+    "public": true
+  },
+  "shippers": {
+    "dataSource": "northwind",
+    "public": true
+  },
+  "strings": {
+    "dataSource": "northwind",
+    "public": true
+  },
+  "suppliers": {
+    "dataSource": "northwind",
+    "public": true
+  },
+  "user": {
+    "dataSource": "northwind",
+    "options": {
+      "emailVerificationRequired": false
+    }
+  }
+}

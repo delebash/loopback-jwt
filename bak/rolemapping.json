@@ -1,0 +1,76 @@
+{
+    "name": "rolemapping",
+    "options": {
+        "idInjection": false,
+        "mysql": {
+            "schema": "northwind",
+            "table": "rolemapping"
+        },
+        "validateUpsert": true
+    },
+    "properties": {
+        "id": {
+            "type": "Number",
+            "required": true,
+            "length": null,
+            "precision": 10,
+            "scale": 0,
+            "id": 1,
+            "mysql": {
+                "columnName": "id",
+                "dataType": "int",
+                "dataLength": null,
+                "dataPrecision": 10,
+                "dataScale": 0,
+                "nullable": "N"
+            }
+        },
+        "principaltype": {
+            "type": "String",
+            "required": false,
+            "length": 512,
+            "precision": null,
+            "scale": null,
+            "mysql": {
+                "columnName": "principalType",
+                "dataType": "varchar",
+                "dataLength": 512,
+                "dataPrecision": null,
+                "dataScale": null,
+                "nullable": "Y"
+            }
+        },
+        "principalid": {
+            "type": "String",
+            "required": false,
+            "length": 255,
+            "precision": null,
+            "scale": null,
+            "mysql": {
+                "columnName": "principalId",
+                "dataType": "varchar",
+                "dataLength": 255,
+                "dataPrecision": null,
+                "dataScale": null,
+                "nullable": "Y"
+            }
+        },
+        "roleid": {
+            "type": "Number",
+            "required": false,
+            "length": null,
+            "precision": 10,
+            "scale": 0,
+            "mysql": {
+                "columnName": "roleId",
+                "dataType": "int",
+                "dataLength": null,
+                "dataPrecision": 10,
+                "dataScale": 0,
+                "nullable": "Y"
+            }
+        }
+    },
+    "base": "RoleMapping",
+    "relations": {}
+}
