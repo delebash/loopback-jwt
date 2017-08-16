@@ -1,121 +1,139 @@
 {
-    "name": "user",
-    "options": {
-        "idInjection": false,
-        "mysql": {
-            "schema": "northwind",
-            "table": "user"
-        },
-        "validateUpsert": true
+  "name": "user",
+  "base": "User",
+  "options": {
+    "idInjection": false,
+    "mysql": {
+      "schema": "northwind",
+      "table": "user"
     },
-    "properties": {
-        "id": {
-            "type": "Number",
-            "required": false,
-            "length": null,
-            "precision": 10,
-            "scale": 0,
-            "id": 1,
-            "mysql": {
-                "columnName": "id",
-                "dataType": "int",
-                "dataLength": null,
-                "dataPrecision": 10,
-                "dataScale": 0,
-                "nullable": "N"
-            }
-        },
-        "realm": {
-            "type": "String",
-            "required": false,
-            "length": 512,
-            "precision": null,
-            "scale": null,
-            "mysql": {
-                "columnName": "realm",
-                "dataType": "varchar",
-                "dataLength": 512,
-                "dataPrecision": null,
-                "dataScale": null,
-                "nullable": "Y"
-            }
-        },
-        "username": {
-            "type": "String",
-            "required": false,
-            "length": 512,
-            "precision": null,
-            "scale": null,
-            "mysql": {
-                "columnName": "username",
-                "dataType": "varchar",
-                "dataLength": 512,
-                "dataPrecision": null,
-                "dataScale": null,
-                "nullable": "Y"
-            }
-        },
-        "password": {
-            "type": "String",
-            "required": true,
-            "length": 512,
-            "precision": null,
-            "scale": null,
-            "mysql": {
-                "columnName": "password",
-                "dataType": "varchar",
-                "dataLength": 512,
-                "dataPrecision": null,
-                "dataScale": null,
-                "nullable": "N"
-            }
-        },
-        "email": {
-            "type": "String",
-            "required": true,
-            "length": 512,
-            "precision": null,
-            "scale": null,
-            "mysql": {
-                "columnName": "email",
-                "dataType": "varchar",
-                "dataLength": 512,
-                "dataPrecision": null,
-                "dataScale": null,
-                "nullable": "N"
-            }
-        },
-        "emailverified": {
-            "type": "Number",
-            "required": false,
-            "length": null,
-            "precision": 3,
-            "scale": 0,
-            "mysql": {
-                "columnName": "emailVerified",
-                "dataType": "tinyint",
-                "dataLength": null,
-                "dataPrecision": 3,
-                "dataScale": 0,
-                "nullable": "Y"
-            }
-        },
-        "verificationtoken": {
-            "type": "String",
-            "required": false,
-            "length": 512,
-            "precision": null,
-            "scale": null,
-            "mysql": {
-                "columnName": "verificationToken",
-                "dataType": "varchar",
-                "dataLength": 512,
-                "dataPrecision": null,
-                "dataScale": null,
-                "nullable": "Y"
-            }
-        }
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "Number",
+      "id": 1,
+      "required": false,
+      "length": null,
+      "precision": 10,
+      "scale": 0,
+      "mysql": {
+        "columnName": "id",
+        "dataType": "int",
+        "dataLength": null,
+        "dataPrecision": 10,
+        "dataScale": 0,
+        "nullable": "N"
+      }
     },
-    "base": "User",
-    "relations": {}
+    "realm": {
+      "type": "String",
+      "required": false,
+      "length": 512,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "realm",
+        "dataType": "varchar",
+        "dataLength": 512,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "username": {
+      "type": "String",
+      "required": false,
+      "length": 512,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "username",
+        "dataType": "varchar",
+        "dataLength": 512,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
+    },
+    "password": {
+      "type": "String",
+      "required": true,
+      "length": 512,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "password",
+        "dataType": "varchar",
+        "dataLength": 512,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "email": {
+      "type": "String",
+      "required": true,
+      "length": 512,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "email",
+        "dataType": "varchar",
+        "dataLength": 512,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "N"
+      }
+    },
+    "emailverified": {
+      "type": "Number",
+      "required": false,
+      "length": null,
+      "precision": 3,
+      "scale": 0,
+      "mysql": {
+        "columnName": "emailVerified",
+        "dataType": "tinyint",
+        "dataLength": null,
+        "dataPrecision": 3,
+        "dataScale": 0,
+        "nullable": "Y"
+      }
+    },
+    "verificationtoken": {
+      "type": "String",
+      "required": false,
+      "length": 512,
+      "precision": null,
+      "scale": null,
+      "mysql": {
+        "columnName": "verificationToken",
+        "dataType": "varchar",
+        "dataLength": 512,
+        "dataPrecision": null,
+        "dataScale": null,
+        "nullable": "Y"
+      }
     }
+  },
+  "validations": [],
+  "relations": {
+    "roles": {
+      "type": "hasMany",
+      "model": "Role",
+      "foreignKey": "principalId",
+      "through": "RoleMapping"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": "find"
+    }
+  ],
+  "methods": {}
+}
